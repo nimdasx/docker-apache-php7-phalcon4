@@ -15,14 +15,15 @@ RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/-Indexes/+Indexes/' /et
 
 #install dependensi
 RUN apt-get -y update \
-&& apt-get install -y \
-unzip \
-libpng-dev \
-git \
-&& rm -rf /var/lib/apt/lists/*
-
-# php ext
-RUN docker-php-ext-install pdo_mysql gd
+    && apt-get install -y \
+    unzip \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    git \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) pdo_mysql gd \
+    && rm -rf /var/lib/apt/lists/*
 
 #install psr (phalcon butuh ini)
 WORKDIR /usr/local/src
