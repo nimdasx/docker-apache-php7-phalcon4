@@ -62,4 +62,5 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     libgssapi-krb5-2 \
     && rm -rf /var/lib/apt/lists/* \
     && pecl install sqlsrv pdo_sqlsrv \
-    && docker-php-ext-enable sqlsrv pdo_sqlsrv
+    && docker-php-ext-enable sqlsrv pdo_sqlsrv \
+    && sed -i 's/TLSv1.2/TLSv1.0/g' /etc/ssl/openssl.cnf
