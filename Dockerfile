@@ -44,7 +44,9 @@ RUN docker-php-ext-enable psr
 
 #phalcon
 WORKDIR /usr/local/src
-RUN git clone --depth=1 "git://github.com/phalcon/cphalcon.git"
+RUN git clone "git://github.com/phalcon/cphalcon.git"
+WORKDIR /usr/local/src/cphalcon
+RUN git checkout 4.1.x
 WORKDIR /usr/local/src/cphalcon/build
 RUN ./install
 WORKDIR /
@@ -52,15 +54,15 @@ RUN rm -rf /usr/local/src/cphalcon
 RUN docker-php-ext-enable phalcon
 
 #sqlsrv
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
-    && curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list \
-    && apt-get update \
-    && ACCEPT_EULA=Y apt-get install -y \
-    msodbcsql17 \
-    mssql-tools \
-    unixodbc-dev \
-    libgssapi-krb5-2 \
-    && rm -rf /var/lib/apt/lists/* \
-    && pecl install sqlsrv pdo_sqlsrv \
-    && docker-php-ext-enable sqlsrv pdo_sqlsrv \
-    && sed -i 's/TLSv1.2/TLSv1.0/g' /etc/ssl/openssl.cnf
+#RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+#    && curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list \
+#    && apt-get update \
+#    && ACCEPT_EULA=Y apt-get install -y \
+#    msodbcsql17 \
+#    mssql-tools \
+#    unixodbc-dev \
+#    libgssapi-krb5-2 \
+#    && rm -rf /var/lib/apt/lists/* \
+#    && pecl install sqlsrv pdo_sqlsrv \
+#    && docker-php-ext-enable sqlsrv pdo_sqlsrv \
+#    && sed -i 's/TLSv1.2/TLSv1.0/g' /etc/ssl/openssl.cnf
