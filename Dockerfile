@@ -20,12 +20,14 @@ RUN apt-get -y update \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libpng-dev \
+    libzip-dev \
     gnupg \
     gnupg2 \
     gnupg1 \
     git \
+    zip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) pdo_mysql gd \
+    && docker-php-ext-install -j$(nproc) pdo_mysql gd zip \
     && rm -rf /var/lib/apt/lists/*
 
 #psr (phalcon butuh ini)
