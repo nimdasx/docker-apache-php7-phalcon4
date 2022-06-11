@@ -46,7 +46,7 @@ RUN docker-php-ext-enable psr
 
 #phalcon
 WORKDIR /usr/local/src
-RUN git clone "git://github.com/phalcon/cphalcon.git"
+RUN git clone "https://github.com/phalcon/cphalcon.git"
 WORKDIR /usr/local/src/cphalcon
 RUN git checkout 4.1.x
 WORKDIR /usr/local/src/cphalcon/build
@@ -59,6 +59,17 @@ RUN docker-php-ext-enable phalcon
 RUN pecl install -o -f redis \ && rm -rf /tmp/pear \ && docker-php-ext-enable redis
 #atau ini yo iso?
 #RUN pecl install redis && docker-php-ext-enable redis
+
+#ioncube
+#RUN ...
+#    arch="$(uname -m)"; \
+#    case "$arch" in \
+#      aarch64) export 
+RUN mkdir /usr/src/ioncube
+COPY ioncube /usr/src/ioncube
+RUN mkdir /usr/local/ioncube
+RUN mv /usr/src/ioncube/$(uname -m)/ioncube_loader_lin_7.4.so /usr/local/ioncube
+RUN mv /usr/src/ioncube/php-ioncube.ini /usr/local/etc/php/conf.d
 
 #sqlsrv
 #RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
