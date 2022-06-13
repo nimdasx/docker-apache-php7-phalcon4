@@ -26,6 +26,7 @@ RUN apt-get -y update \
     gnupg1 \
     git \
     zip \
+    mariadb-client \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) pdo_mysql gd zip mysqli \
     && rm -rf /var/lib/apt/lists/*
