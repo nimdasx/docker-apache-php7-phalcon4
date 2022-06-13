@@ -27,7 +27,7 @@ RUN apt-get -y update \
     git \
     zip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) pdo_mysql gd zip \
+    && docker-php-ext-install -j$(nproc) pdo_mysql gd zip mysqli \
     && rm -rf /var/lib/apt/lists/*
 
 #psr (phalcon butuh ini)
