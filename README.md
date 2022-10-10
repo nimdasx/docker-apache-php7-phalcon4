@@ -10,6 +10,6 @@ docker push nimdasx/sf-phalcon4
 
 ## build dan push ke github :
 ````
-docker build --tag ghcr.io/nimdasx/docker-apache-php7-phalcon4 .
-docker push ghcr.io/nimdasx/docker-apache-php7-phalcon4
+docker build --tag ghcr.io/nimdasx/docker-apache-php7-phalcon4:master .
+docker push ghcr.io/nimdasx/docker-apache-php7-phalcon4:master
 ````
