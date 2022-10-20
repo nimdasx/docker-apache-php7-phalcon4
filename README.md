@@ -1,6 +1,6 @@
 # docker apache php 7 phalcon 4
 
-## catatan
+## catatanx
 ````
 docker build --tag nimdasx/sf-phalcon4 .   
 docker run -d -p 81:80 -v /Users/sofyan/Dev/php:/var/www/html --name terserah nimdasx/sf-phalcon4  
