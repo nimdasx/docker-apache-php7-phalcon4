@@ -1,4 +1,4 @@
-# docker apache php 7 phalcon 4
+# docker apache php-7.4 phalcon-4.1
 ## catatan
 ````
 docker run -d -p 81:80 -v /Users/sofyan/Dev/php:/var/www/html --name dinosaurus nimdasx/apache-php7-phalcon4

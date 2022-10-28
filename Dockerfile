@@ -1,7 +1,7 @@
 FROM php:7.4-apache-buster
 
 LABEL maintainer="nimdasx@gmail.com"
-LABEL description="Debian Apache PHP7.4 Phalcon4"
+LABEL description="apache php-7.4 phalcon-4.1"
 
 #set timezone
 RUN ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
@@ -65,7 +65,7 @@ RUN pecl install -o -f redis \ && rm -rf /tmp/pear \ && docker-php-ext-enable re
 #RUN ...
 #    arch="$(uname -m)"; \
 #    case "$arch" in \
-#      aarch64) export 
+#      aarch64) export
 RUN mkdir /usr/src/ioncube
 COPY ioncube /usr/src/ioncube
 RUN mkdir /usr/local/ioncube
