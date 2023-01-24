@@ -27,8 +27,9 @@ RUN apt-get -y update \
     git \
     zip \
     mariadb-client \
+    libpq-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) pdo_mysql gd zip mysqli \
+    && docker-php-ext-install -j$(nproc) pdo_mysql pdo_pgsql gd zip mysqli \
     && rm -rf /var/lib/apt/lists/*
 
 #psr (phalcon butuh ini)
