@@ -77,6 +77,8 @@ RUN mv /usr/src/ioncube/php-ioncube.ini /usr/local/etc/php/conf.d
 #enable remoteip
 RUN a2enmod remoteip
 
+COPY 000-default.conf /etc/apache2/sites-enabled/000-default.conf
+
 #sqlsrv
 #RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
 #    && curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list \
