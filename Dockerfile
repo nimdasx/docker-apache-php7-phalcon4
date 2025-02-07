@@ -1,4 +1,4 @@
-FROM php:7.4-apache-buster
+FROM php:7.4-apache-bullseye
 
 LABEL maintainer="nimdasx@gmail.com"
 LABEL description="apache php-7.4 phalcon-4.1"
@@ -19,6 +19,14 @@ RUN a2enmod rewrite remoteip headers \
 #dependensi
 RUN apt-get -y update \
     && apt-get install -y \
+    gcc \
+    g++ \
+    make \
+    autoconf \
+    automake \
+    libpcre3-dev \
+    pkg-config \
+    re2c \
     unzip \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
