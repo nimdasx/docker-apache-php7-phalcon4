@@ -1,4 +1,4 @@
-FROM php:7.4-apache-bullseye
+FROM php:7.4-apache-buster
 
 LABEL maintainer="nimdasx@gmail.com"
 LABEL description="apache php-7.4 phalcon-4.1"
@@ -29,21 +29,12 @@ RUN apt-get -y update \
     gnupg1 \
     libpq-dev \
     libxml2-dev \
+    git \
+    zip \
+    mariadb-client \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) pdo_mysql pdo_pgsql gd zip mysqli xmlrpc \
     && rm -rf /var/lib/apt/lists/*
-
-#psr, phalcon 4 harus pakai ext ini
-RUN pecl install psr-1.2.0 \
-    && docker-php-ext-enable psr
-
-#phalcon
-RUN pecl install phalcon-4.1.2 \
-    && docker-php-ext-enable phalcon
-
-#redis
-RUN pecl install redis \
-    && docker-php-ext-enable redis
 
 #ioncube
 #RUN ...
@@ -55,6 +46,24 @@ COPY ioncube /usr/src/ioncube
 RUN mkdir /usr/local/ioncube
 RUN mv /usr/src/ioncube/$(uname -m)/ioncube_loader_lin_7.4.so /usr/local/ioncube
 RUN mv /usr/src/ioncube/php-ioncube.ini /usr/local/etc/php/conf.d
+
+#redis
+RUN pecl install redis \
+    && docker-php-ext-enable redis
+
+#psr, phalcon 4 harus pakai ext ini
+RUN pecl install psr-1.2.0 \
+    && docker-php-ext-enable psr
+
+#phalcon
+RUN pecl install phalcon-4.1.2 \
+    && docker-php-ext-enable phalcon
+
+#phalcon 
+# RUN git clone --depth=1 --branch v4.1.2 https://github.com/phalcon/cphalcon.git \
+#     && cd cphalcon/build \
+#     && ./install \
+#     && docker-php-ext-enable phalcon
 
 #sqlsrv
 #RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
