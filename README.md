@@ -4,6 +4,9 @@
 - phalcon 4.1 maksimal di php 7.4
 - bullseye : berhasil arm64, amd64
 - buster : berhasil arm64, amd64
+- setelah upgrade ke bullseye, log apache bisa terlihat ip real yang di kirim dari proxy
+- Dockerfile.00 berhasil
+- Dockerfile masih ujicoba
 
 ## command
 ````
