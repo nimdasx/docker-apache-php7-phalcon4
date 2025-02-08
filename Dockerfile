@@ -21,12 +21,13 @@ RUN install-php-extensions pdo_mysql
 RUN install-php-extensions pdo_pgsql
 RUN install-php-extensions gd
 RUN install-php-extensions zip
-RUN install-php-extensions mysqli
-RUN install-php-extensions xmlrpc
 RUN install-php-extensions psr
 RUN install-php-extensions redis
 RUN install-php-extensions sqlsrv
 RUN install-php-extensions pdo_sqlsrv
 RUN install-php-extensions phalcon-4.1.2
+# failed di arm64
+RUN install-php-extensions mysqli
+RUN install-php-extensions xmlrpc
 # RUN install-php-extensions ioncube_loader pdo_mysql pdo_pgsql gd zip mysqli xmlrpc psr redis phalcon-4.1.2 sqlsrv pdo_sqlsrv
 

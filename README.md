@@ -26,8 +26,8 @@ docker buildx create --name jangkrik --use --bootstrap
 docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
 # buildx and push ke github
-docker buildx build --push --platform linux/amd64,linux/arm64 --tag ghcr.io/nimdasx/apache-php7-phalcon4 .
+docker buildx build --platform linux/amd64,linux/arm64 --tag ghcr.io/nimdasx/apache-php7-phalcon4 --push .
 
 # buildx and push ke docker hub
-docker buildx build --push --platform linux/amd64,linux/arm64 --tag nimdasx/apache-php7-phalcon4 .
+docker buildx build --platform linux/amd64,linux/arm64 --tag nimdasx/apache-php7-phalcon4 --push .
 ````
