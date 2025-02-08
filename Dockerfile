@@ -17,4 +17,3 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime \
 ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 RUN install-php-extensions ioncube_loader pdo_mysql pdo_pgsql gd zip mysqli xmlrpc psr redis sqlsrv pdo_sqlsrv phalcon-4.1.2
-
