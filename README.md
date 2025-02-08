@@ -6,7 +6,8 @@
 - buster : berhasil arm64, amd64
 - setelah upgrade ke bullseye, log apache bisa terlihat ip real yang di kirim dari proxy
 - Dockerfile.00 berhasil
-- Dockerfile masih ujicoba
+- Dockerfile berhasil pakai multi builder (lokal amd64 , remote kyrios arm64) 
+- cek https://github.com/nimdasx/gits/blob/main/docker.md#lokal-builder-for-amd64-remote-builder-for-arm64
 
 ## command
 ````
