@@ -4,15 +4,6 @@
 - phalcon 4.1 maksimal di php 7.4
 - bullseye : berhasil arm64, amd64
 - buster : berhasil arm64, amd64
-- bullesye berhasil arm64 karene tambahan paket     
-    gcc \
-    g++ \
-    make \
-    autoconf \
-    automake \
-    libpcre3-dev \
-    pkg-config \
-    re2c \
 
 ## command
 ````
