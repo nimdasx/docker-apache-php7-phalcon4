@@ -11,4 +11,7 @@ docker buildx build --platform linux/amd64,linux/arm64 --tag ghcr.io/nimdasx/apa
 
 # buildx and push ke docker hub
 docker buildx build --platform linux/amd64,linux/arm64 --tag nimdasx/apache-php7-phalcon4 --push .
+# or for single platform
+docker build --tag nimdasx/apache-php7-phalcon4 .
+docker push nimdasx/apache-php7-phalcon4
 ````
